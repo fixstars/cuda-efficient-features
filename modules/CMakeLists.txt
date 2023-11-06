@@ -1,0 +1,2 @@
+add_subdirectory(efficient_features)
+add_subdirectory(cuda_efficient_features)
