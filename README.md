@@ -14,7 +14,7 @@ This project implements keypoint detection and descriptor extraction in CUDA,
 
 The figure below shows a comparison of keypoint detection results between OpenCV's implementation and this project's one.
 <div align="center">
-<img src="https://github.com/fixstars/cuda-efficient-features/wiki/images/keypoints1.png" width=448> <img src="https://github.com/fixstars/cuda-efficient-features/wiki/images/keypoints2.png" width=448><br/>
+<img src="https://github.com/fixstars/cuda-efficient-features/wiki/images/keypoints1.png" width=384> <img src="https://github.com/fixstars/cuda-efficient-features/wiki/images/keypoints2.png" width=384><br/>
 </div>
 
 **Left**: Even though OpenCV's implementation detected about 20,000 keypoints, most of them were concentrated in the leaves of trees.
