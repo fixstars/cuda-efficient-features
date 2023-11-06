@@ -1,0 +1,6 @@
+[submodule "tests/googletest"]
+	path = tests/googletest
+	url = https://github.com/google/googletest.git
+[submodule "tests/data"]
+	path = tests/data
+	url = https://github.com/openMVG/ImageDataset_SceauxCastle.git
