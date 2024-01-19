@@ -51,6 +51,14 @@ static __device__ inline int distanceSq(short2 pt1, short2 pt2)
 	return dx * dx + dy * dy;
 }
 
+static __device__ inline float convertToDegree(float angle)
+{
+	constexpr float PI = static_cast<float>(CV_PI);
+	if (angle < 0)
+		angle += 2.f * PI;
+	return (180.f / PI) * angle;
+}
+
 static __device__ inline bool IsMaxPoint(int idx1, const short2* points, const float* responses,
 	const int* blockPtr, const int* pointIds, int gridW, int gridH, int imageRadius, int blockRadius)
 {
@@ -87,14 +95,6 @@ static __device__ inline bool IsMaxPoint(int idx1, const short2* points, const f
 
 	return true;
 };
-
-static __device__ float convertToDegree(float angle)
-{
-	constexpr float PI = static_cast<float>(CV_PI);
-	if (angle < 0)
-		angle += 2.f * PI;
-	return (180.f / PI) * angle;
-}
 
 static __device__ float calcResponse(PtrStepb image, short2 pt)
 {
