@@ -349,7 +349,7 @@ public:
 			KeyPoint kpt;
 			kpt.pt = Point2f(points[i][0], points[i][1]);
 			kpt.response = responses[i];
-			kpt.angle = convertToDegree(angles[i]);
+			kpt.angle = angles[i];
 			kpt.octave = octaves[i];
 			kpt.size = sizes[i];
 			dst[i] = kpt;

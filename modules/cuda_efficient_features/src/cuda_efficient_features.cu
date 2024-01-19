@@ -88,7 +88,7 @@ static __device__ inline bool IsMaxPoint(int idx1, const short2* points, const f
 	return true;
 };
 
-static __device__ inline float convertToDegree(float angle)
+static __device__ float convertToDegree(float angle)
 {
 	constexpr float PI = static_cast<float>(CV_PI);
 	if (angle < 0)
