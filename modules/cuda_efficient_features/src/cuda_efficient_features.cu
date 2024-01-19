@@ -88,6 +88,14 @@ static __device__ inline bool IsMaxPoint(int idx1, const short2* points, const f
 	return true;
 };
 
+static __device__ inline float convertToDegree(float angle)
+{
+	constexpr float PI = static_cast<float>(CV_PI);
+	if (angle < 0)
+		angle += 2.f * PI;
+	return (180.f / PI) * angle;
+}
+
 static __device__ float calcResponse(PtrStepb image, short2 pt)
 {
 	constexpr int BLOCK_SIZE = 7;
@@ -160,7 +168,7 @@ static __device__ float IC_Angle(PtrStepb image, short2 pt)
 		m_01 += dy * y_sum;
 	}
 
-	return ::atan2f((float)m_01, (float)m_10);
+	return convertToDegree(::atan2f((float)m_01, (float)m_10));
 }
 
 __global__ void nptPerBlockKernel(const short2* points, int npoints, int* nptPerBlock, int gridStep)
