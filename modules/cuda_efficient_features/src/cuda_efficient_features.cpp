@@ -181,14 +181,6 @@ static void createMask(GpuMat& mask, Size imgSize, int border, Stream& stream)
 	mask(ROI).setTo(Scalar::all(255), stream);
 }
 
-static inline float convertToDegree(float angle)
-{
-	constexpr float PI = static_cast<float>(CV_PI);
-	if (angle < 0)
-		angle += 2.f * PI;
-	return (180.f / PI) * angle;
-}
-
 class EfficientFeaturesImpl : public EfficientFeatures
 {
 public:
@@ -349,7 +341,7 @@ public:
 			KeyPoint kpt;
 			kpt.pt = Point2f(points[i][0], points[i][1]);
 			kpt.response = responses[i];
-			kpt.angle = convertToDegree(angles[i]);
+			kpt.angle = angles[i];
 			kpt.octave = octaves[i];
 			kpt.size = sizes[i];
 			dst[i] = kpt;
