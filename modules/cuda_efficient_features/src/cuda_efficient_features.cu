@@ -283,7 +283,10 @@ void radiusSuppression(const GpuMat& src, GpuMat& dst, Size imgSize, float radiu
 {
 	const int npoints = src.cols;
 	if (npoints <= 0)
+	{
+		dst.cols = 0;
 		return;
+	}
 
 	const int imageRadius = cvCeil(radius * radius);
 	const int blockRadius = cvCeil(radius / CELL_SIZE);
